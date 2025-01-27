@@ -2,15 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function NoteItem({id, title, createdAt, body}) {
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("id-ID", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
+
+function NoteItem({ id, title, createdAt, body }) {
   return (
-      <article>
-        <h3>
-          <Link to={`/notes/${id}`}>{title}</Link>
-        </h3>
-        <p>{createdAt}</p>
-        <p>{body}</p>
-      </article>
+    <article className="note-item">
+      <h3 className="note-item__title">
+        <Link to={`/notes/${id}`}>{title}</Link>
+      </h3>
+      <p className="note-item__createdAt">{formatDate(createdAt)}</p>
+      <p className="note-item__body">{body}</p>
+    </article>
   );
 }
 

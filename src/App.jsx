@@ -1,15 +1,24 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import ListNotes from './pages/HomePage';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import ListNotes from "./pages/HomePage";
 
 function App() {
   return (
     <>
       <header>
-        <h1>Aplikasi Catatan</h1>
+        <h1>
+          <a href="/">📝Aplikasi Catatan</a>
+        </h1>
+        <nav className="navigation">
+          <ul>
+            <li>
+              <a href="/archives">Arsip</a>
+            </li>
+          </ul>
+        </nav>
       </header>
       <main>
-        <Routes>
+        <Routes className="app-container">
           <Route path="/" element={<ListNotes />} />
         </Routes>
       </main>
