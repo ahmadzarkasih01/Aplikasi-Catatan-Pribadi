@@ -3,7 +3,7 @@ import NoteItem from './NoteItem';
 
 function NoteList({ notes }) {
  return (
-   <section>
+   <section className='notes-list'>
     {
       notes.map((note) => (
         <NoteItem key={note.id} {...note}/>
